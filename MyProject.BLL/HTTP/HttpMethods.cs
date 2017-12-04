@@ -22,7 +22,7 @@ namespace MyProject.BLL.HTTP
         /// <typeparam name="T">The object type parameter.</typeparam>
         public async Task<T> GET<T>()//APIRootAddress _api, string API, string Parameter = ""
         {
-            //TODO - TEMP CODE, MUST RELOCATE TO DATA ACCESS LAYER
+            //TODO - TEMP CODE, MUST RELOCATE TO DATA ACCESS LAYER -edited
             string cfg_web_srv_ip_addrss = "localhost:57452";
             string API = "GetUsers";
             string Parameter = "";
