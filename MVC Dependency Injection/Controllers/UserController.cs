@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using MyProject.BLL;
+using AutoMapper;
+using MyProject.Model.ViewModels;
 
 namespace MVC_Dependency_Injection.Controllers
 {
@@ -27,8 +29,9 @@ namespace MVC_Dependency_Injection.Controllers
         // GET: User
         public async Task<ActionResult> Index()
         {
-            var data = await _user.GetAll();
-            return View(data);
+            
+            var viewModel = Mapper.Map<IEnumerable<UserViewModel>>(await _user.GetAll());
+            return View(viewModel);
         }
     }
 }

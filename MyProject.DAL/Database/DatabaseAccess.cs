@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MyProject.IBLL.Database;
 using MyProject.BLL.Database;
 using MyProject.Model;
+using MyProject.Model.ViewModels;
 
 namespace MyProject.DAL.Database
 {
@@ -18,11 +19,11 @@ namespace MyProject.DAL.Database
         private static readonly string ConnectionString = $"Persist Security Info=False;User ID=moldid;Password=22d3m0stration!;Initial Catalog={DataBaseName};Data Source={DbServerIP}";
         private static readonly string DataProvider = "System.Data.SqlClient";
         private static DatabaseProviderHelper _databaseProvider;
-
+        
         public static List<User> GetUsersDb()
         {
             _databaseProvider = new DatabaseProvider(DataProvider, ConnectionString);
-
+            
             try
             {
                 List<User> Users = new List<User>();
