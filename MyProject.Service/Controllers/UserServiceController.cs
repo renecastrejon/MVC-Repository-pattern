@@ -17,7 +17,7 @@ namespace MyProject.Service.Controllers
         {
             try
             {
-                //To use with
+                //To use directly with AutoMapper
                 //var temp = Mapper.Map<List<UserViewModel>>(GetAllUsers());
                 
                 var users = GetAllUsers().MapTo<List<User>>();

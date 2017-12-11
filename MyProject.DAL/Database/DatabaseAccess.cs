@@ -24,7 +24,7 @@ namespace MyProject.DAL.Database
         ///metadata=res://*/MyModel.csdl|res://*/MyModel.ssdl|res://*/MyModel.msl;
         private static readonly string DataProvider = "System.Data.SqlClient";
         private static DatabaseProviderHelper _databaseProvider;
-        
+
         public static List<User> GetUsersDb()
         {
             _databaseProvider = new DatabaseProvider(DataProvider, ConnectionString);
@@ -99,6 +99,7 @@ namespace MyProject.DAL.Database
 
         public static List<tbl_User> GetAllUsers()
         {
+            //TODO - Ver que la implementacion se haga con dbcontext o directo con SQL
             _databaseProvider = new DatabaseProvider(DataProvider,ConnectionStringEF);
             using (var ctx = new MOLDID_DB_SQLSERVER_ConnectionString(ConnectionStringEF))
             {

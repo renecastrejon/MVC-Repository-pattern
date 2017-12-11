@@ -29,8 +29,9 @@ namespace MVC_Dependency_Injection.Controllers
         // GET: User
         public async Task<ActionResult> Index()
         {
-            //TODO - Posible implementacion de automapper o en la capa de servicio
+            //To use directly with Automapper
             //var viewModel = Mapper.Map<IEnumerable<UserViewModel>>(await _user.GetAll());
+
             var temp = await _user.GetAll();
             var viewModel = temp.MapTo<List<UserViewModel>>();
             return View(viewModel);
