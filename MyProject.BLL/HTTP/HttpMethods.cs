@@ -24,7 +24,7 @@ namespace MyProject.BLL.HTTP
         {
             //TODO - TEMP CODE, MUST RELOCATE TO DATA ACCESS LAYER -edited
             string cfg_web_srv_ip_addrss = "localhost:57452";
-            string API = "GetUsers";
+            string API = "GetUsersDbContext";
             string Parameter = "";
 
             var Obj = Activator.CreateInstance(typeof(T));

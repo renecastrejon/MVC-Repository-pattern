@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MOLDID_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_User">
+          <Key>
+            <PropertyRef Name="idUser" />
+          </Key>
+          <Property Name="idUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usr_FirstName" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="usr_LastName" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="usr_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="usr_gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="usr_YrsOld" Type="tinyint" Nullable="false" />
+          <Property Name="usr_Active" Type="bit" Nullable="false" />
+          <Property Name="usr_Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="usr_Approbation" Type="int" Nullable="false" />
+          <Property Name="usr_TagInit" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="usr_Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="idwrkShift" Type="int" Nullable="false" />
+          <Property Name="idwrkArea" Type="int" Nullable="false" />
+          <Property Name="idProfile" Type="int" Nullable="false" />
+          <Property Name="usr_Pass" Type="varbinary(max)" Nullable="false" />
+          <Property Name="usr_IsConnected" Type="bit" Nullable="false" />
+          <Property Name="idLoginType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MOLDID_DBModelStoreContainer">
+          <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MOLDID_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_User">
+          <Key>
+            <PropertyRef Name="idUser" />
+          </Key>
+          <Property Name="idUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usr_FirstName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usr_LastName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usr_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usr_gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="usr_YrsOld" Type="Byte" Nullable="false" />
+          <Property Name="usr_Active" Type="Boolean" Nullable="false" />
+          <Property Name="usr_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usr_Approbation" Type="Int32" Nullable="false" />
+          <Property Name="usr_TagInit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usr_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idwrkShift" Type="Int32" Nullable="false" />
+          <Property Name="idwrkArea" Type="Int32" Nullable="false" />
+          <Property Name="idProfile" Type="Int32" Nullable="false" />
+          <Property Name="usr_Pass" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="usr_IsConnected" Type="Boolean" Nullable="false" />
+          <Property Name="idLoginType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MOLDID_DB_SQLSERVER_ConnectionString" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_User" EntityType="Self.tbl_User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MOLDID_DBModelStoreContainer" CdmEntityContainer="MOLDID_DB_SQLSERVER_ConnectionString">
+          <EntitySetMapping Name="tbl_User">
+            <EntityTypeMapping TypeName="MOLDID_DBModel.tbl_User">
+              <MappingFragment StoreEntitySet="tbl_User">
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="usr_FirstName" ColumnName="usr_FirstName" />
+                <ScalarProperty Name="usr_LastName" ColumnName="usr_LastName" />
+                <ScalarProperty Name="usr_name" ColumnName="usr_name" />
+                <ScalarProperty Name="usr_gender" ColumnName="usr_gender" />
+                <ScalarProperty Name="usr_YrsOld" ColumnName="usr_YrsOld" />
+                <ScalarProperty Name="usr_Active" ColumnName="usr_Active" />
+                <ScalarProperty Name="usr_Title" ColumnName="usr_Title" />
+                <ScalarProperty Name="usr_Approbation" ColumnName="usr_Approbation" />
+                <ScalarProperty Name="usr_TagInit" ColumnName="usr_TagInit" />
+                <ScalarProperty Name="usr_Email" ColumnName="usr_Email" />
+                <ScalarProperty Name="idwrkShift" ColumnName="idwrkShift" />
+                <ScalarProperty Name="idwrkArea" ColumnName="idwrkArea" />
+                <ScalarProperty Name="idProfile" ColumnName="idProfile" />
+                <ScalarProperty Name="usr_Pass" ColumnName="usr_Pass" />
+                <ScalarProperty Name="usr_IsConnected" ColumnName="usr_IsConnected" />
+                <ScalarProperty Name="idLoginType" ColumnName="idLoginType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

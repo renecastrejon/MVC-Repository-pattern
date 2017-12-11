@@ -44,10 +44,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.2.1\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -191,7 +187,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
@@ -281,6 +276,14 @@
     <ProjectReference Include="..\MyProject.BLL\MyProject.BLL.csproj">
       <Project>{64c3ce35-f329-4c79-b961-19a6d3e58510}</Project>
       <Name>MyProject.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyProject.Common\MyProject.Common.csproj">
+      <Project>{C1579EE9-6F59-4232-83B6-9A3CAB099E13}</Project>
+      <Name>MyProject.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyProject.DAL\MyProject.DAL.csproj">
+      <Project>{00184167-0ca7-40fc-8fe8-1017979923d5}</Project>
+      <Name>MyProject.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyProject.IBLL\MyProject.IBLL.csproj">
       <Project>{2a40ffcf-4646-41d0-a51c-c5ded5363288}</Project>

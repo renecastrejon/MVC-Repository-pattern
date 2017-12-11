@@ -13,6 +13,7 @@ namespace MyProject.IBLL.Database
         public DbProviderFactory DbProviderFactory { get; private set; }
         public string ConnectionString { get; set; }
         public string DataProvider { get; set; }
+
         public DbConnection GetConnection()
         {
             DbConnection newConnection = null;

@@ -3,6 +3,7 @@ using MyProject.IBLL;
 using MyProject.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MyProject.BLL
@@ -15,7 +16,7 @@ namespace MyProject.BLL
         {
             _httpMethods = new HttpMethods();
             var users = await _httpMethods.GET<List<User>>(); //APIRootAddress.Root, "GetMachine"
-            return users;
+            return users.ToList();
         }
 
         public string Add(User entity)

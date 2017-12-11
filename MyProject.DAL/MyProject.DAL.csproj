@@ -30,13 +30,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.2.1\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,10 +56,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DatabaseAccess.cs" />
+    <Compile Include="EntityModels\DataSources\SQLSERVER\MOLDID_DB_DataModel_SQLSERVER.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MOLDID_DB_DataModel_SQLSERVER.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\DataSources\SQLSERVER\MOLDID_DB_DataModel_SQLSERVER.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MOLDID_DB_DataModel_SQLSERVER.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\DataSources\SQLSERVER\MOLDID_DB_DataModel_SQLSERVER.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MOLDID_DB_DataModel_SQLSERVER.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\DataSources\SQLSERVER\tbl_User.cs">
+      <DependentUpon>MOLDID_DB_DataModel_SQLSERVER.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EntityModels\" />
+    <Folder Include="EntityModels\DataSources\MYSQL\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyProject.BLL\MyProject.BLL.csproj">
@@ -66,7 +94,30 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="EntityModels\DataSources\SQLSERVER\MOLDID_DB_DataModel_SQLSERVER.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MOLDID_DB_DataModel_SQLSERVER.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityModels\DataSources\SQLSERVER\MOLDID_DB_DataModel_SQLSERVER.edmx.diagram">
+      <DependentUpon>MOLDID_DB_DataModel_SQLSERVER.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EntityModels\DataSources\SQLSERVER\MOLDID_DB_DataModel_SQLSERVER.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MOLDID_DB_DataModel_SQLSERVER.edmx</DependentUpon>
+      <LastGenOutput>MOLDID_DB_DataModel_SQLSERVER.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityModels\DataSources\SQLSERVER\MOLDID_DB_DataModel_SQLSERVER.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MOLDID_DB_DataModel_SQLSERVER.edmx</DependentUpon>
+      <LastGenOutput>MOLDID_DB_DataModel_SQLSERVER.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

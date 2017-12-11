@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyProject.IBLL.Database;
 using MyProject.BLL.Database;
+using MyProject.DAL.EntityModels.DataSources.SQLSERVER;
 using MyProject.Model;
 using MyProject.Model.ViewModels;
+
 
 namespace MyProject.DAL.Database
 {
@@ -17,6 +20,8 @@ namespace MyProject.DAL.Database
         private static readonly string DbServerIP = "localhost";
         //private static readonly string ConnectionString = $"Persist Security Info=False;User ID=moldid;Password=22d3m0stration!;Initial Catalog={DataBaseName};Data Source={DbServerIP}\\SQLExpress";
         private static readonly string ConnectionString = $"Persist Security Info=False;User ID=moldid;Password=22d3m0stration!;Initial Catalog={DataBaseName};Data Source={DbServerIP}";
+        private static readonly string ConnectionStringEF = $"metadata = res://*/EntityModels.DataSources.SQLSERVER.MOLDID_DB_DataModel_SQLSERVER.csdl|res://*/EntityModels.DataSources.SQLSERVER.MOLDID_DB_DataModel_SQLSERVER.ssdl|res://*/EntityModels.DataSources.SQLSERVER.MOLDID_DB_DataModel_SQLSERVER.msl;provider=System.Data.SqlClient;provider connection string=';Data Source={DbServerIP};Initial Catalog={DataBaseName};User ID=sa;Password=dbAdmin17;MultipleActiveResultSets=True';";
+        ///metadata=res://*/MyModel.csdl|res://*/MyModel.ssdl|res://*/MyModel.msl;
         private static readonly string DataProvider = "System.Data.SqlClient";
         private static DatabaseProviderHelper _databaseProvider;
         
@@ -92,6 +97,28 @@ namespace MyProject.DAL.Database
             }
         }
 
+        public static List<tbl_User> GetAllUsers()
+        {
+            _databaseProvider = new DatabaseProvider(DataProvider,ConnectionStringEF);
+            using (var ctx = new MOLDID_DB_SQLSERVER_ConnectionString(ConnectionStringEF))
+            {
+                return ctx.tbl_User.ToList();
+                //students = ctx.tbl_User.Include("StudentAddress")
+                //    .Select(s => new StudentViewModel()
+                //    {
+                //        Id = s.StudentID,
+                //        FirstName = s.FirstName,
+                //        LastName = s.LastName
+                //    }).ToList<StudentViewModel>();
+            }
+
+            //if (students.Count == 0)
+            //{
+            //    return NotFound();
+            //}
+
+            //return Ok(students);
+        }
+
     }
-    
 }

@@ -5,8 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using AutoMapper;
-using MVC_Dependency_Injection.App_Start;
 using MyProject.Model;
 using MyProject.Model.ViewModels;
 
@@ -17,11 +15,6 @@ namespace MVC_Dependency_Injection
         protected void Application_Start()
         {
             //Mapper.Initialize(c => c.AddProfile<MappingProfile>());
-            Mapper.Initialize(cfg =>
-            {
-                cfg.CreateMap<User, UserViewModel>();
-                cfg.CreateMap<UserViewModel, User>();
-            });
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
